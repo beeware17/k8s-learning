@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-org/your-repo.git
+    repoURL: https://github.com/beeware17/k8s-learning.git
     targetRevision: dev
     path: apps/overlays/dev
     kustomize:
