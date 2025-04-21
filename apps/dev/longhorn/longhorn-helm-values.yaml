@@ -1,6 +1,10 @@
+persistence:
+  defaultClass: true
+  reclaimPolicy: Retain
+  defaultClassReplicaCount: 2
+
 defaultSettings:
   defaultReplicaCount: 2
-  createDefaultStorageClass: false
 
 preUpgradeChecker:
   jobEnabled: false
