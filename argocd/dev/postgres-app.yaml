@@ -8,7 +8,10 @@ spec:
   source:
     repoURL: https://github.com/beeware17/k8s-learning.git
     targetRevision: dev
-    path: apps/overlays/dev
+    path: apps/dev/postgresql
+    helm:
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: postgresql
