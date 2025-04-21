@@ -5,19 +5,23 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://github.com/beeware17/k8s-learning.git
-    targetRevision: dev
-    path: apps/dev/postgresql
-    helm:
-      valueFiles:
-        - values.yaml
+  sources:
+    - repoURL: https://github.com/beeware17/k8s-learning.git
+      targetRevision: apps
+      path: apps/dev/postgresql
+    - chart: postgresql
+      repoURL: registry-1.docker.io/bitnamicharts
+      targetRevision: 16.6.3
+      helm:
+        releaseName: sealed-secrets
+        valueFiles:
+        - apps/dev/postgresql/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: postgresql
   syncPolicy:
     automated:
-      prune: true
       selfHeal: true
+      prune: true
     syncOptions:
       - CreateNamespace=true
