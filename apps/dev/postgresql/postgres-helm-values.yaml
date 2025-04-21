@@ -2,3 +2,7 @@ auth:
   existingSecret: postgresql-password
   secretKeys:
     adminPasswordKey: "password"
+
+primary:
+  persistence:
+    size: "15Gi"
