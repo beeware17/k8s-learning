@@ -2,5 +2,5 @@ defaultSettings:
   defaultReplicaCount: 2
   createDefaultStorageClass: false
 
-helmPreUpgradeCheckerJob:
-  enabled: false
+preUpgradeChecker:
+  jobEnabled: false
