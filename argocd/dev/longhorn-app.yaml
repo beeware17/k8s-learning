@@ -10,7 +10,7 @@ spec:
       targetRevision: apps
       path: apps/dev/longhorn
       ref: repo
-    - chart: longhorn/longhorn
+    - chart: longhorn
       repoURL: https://charts.longhorn.io
       targetRevision: 1.8.1
       helm:
