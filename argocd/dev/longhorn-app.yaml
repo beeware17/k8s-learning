@@ -12,7 +12,7 @@ spec:
       ref: repo
     - chart: longhorn
       repoURL: https://charts.longhorn.io
-      targetRevision: 1.8.1
+      targetRevision: 1.8.0
       helm:
         releaseName: longhorn
         valueFiles:
@@ -20,7 +20,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: postgresql
+    namespace: longhorn-system
   syncPolicy:
     automated:
       selfHeal: true
