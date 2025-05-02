@@ -1,9 +1,0 @@
-auth:
-  existingSecret: postgresql-password
-  secretKeys:
-    adminPasswordKey: "password"
-
-primary:
-  persistence:
-    enabled: true
-    size: "15Gi"
