@@ -1,28 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: longhorn-dev
+  name: test-dev
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
-  sources:
-    - repoURL: https://github.com/beeware17/k8s-learning.git
-      targetRevision: apps
-      path: apps/dev/longhorn
-      ref: repo
-    - chart: longhorn
-      repoURL: https://charts.longhorn.io
-      targetRevision: 1.8.0
-      helm:
-        releaseName: longhorn
-        valueFiles:
-          - $repo/apps/dev/longhorn/longhorn-helm-values.yaml
-
+  source:
+    repoURL: https://github.com/beeware17/k8s-learning.git
+    targetRevision: apps
+    path: apps/dev/test
+    plugin:
+      name: sops-yaml   # 👈 this enables SOPS decryption plugin
   destination:
     server: https://kubernetes.default.svc
-    namespace: longhorn-system
+    namespace: test
   syncPolicy:
     automated:
       selfHeal: true
